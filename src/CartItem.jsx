@@ -8,28 +8,48 @@ const CartItem = ({ onContinueShopping }) => {
   const dispatch = useDispatch();
 
   // Calculate total amount for all products in the cart
-  const calculateTotalAmount = () => {
- 
+  const calculateTotalAmount = () => { //TAREA 3.1
+    let costoTotal=0;
+    for(let i = 0; i<cart.length;i++){
+      costoTotal += parseInt(cart[i].cost.slice(1),10) * cart[i].quantity;
+    }
+    return costoTotal;
   };
 
   const handleContinueShopping = (e) => {
-   
+    onContinueShopping(e);//TAREA3.2
   };
 
 
 
   const handleIncrement = (item) => {
+    const updatedItem = {//TAREA 3.4
+      ...item,  
+      quantity: item.quantity + 1  
+    };
+    dispatch(updateQuantity(updatedItem));
   };
 
   const handleDecrement = (item) => {
-   
+    if(item.quantity-1 > 0){
+      const updatedItem = {
+        ...item,  //TAREA 3.4
+        quantity: item.quantity - 1  
+      };
+      dispatch(updateQuantity(updatedItem));
+    }
+    else{
+      dispatch(removeItem(item.name));
+    }
   };
 
   const handleRemove = (item) => {
+    dispatch(removeItem(item.name));//TAREA 3.5
   };
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
+    return item.quantity * parseInt(item.cost.slice(1),10);//TAREA 3.6
   };
 
   return (

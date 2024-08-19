@@ -6,7 +6,7 @@ export const CartSlice = createSlice({
     items: [], // Initialize items as an empty array
   },
   reducers: {
-    addItem: (state, action) => {
+    addItem: (state, action) => {//TAREA2
       const { name, image, cost } = action.payload;
       const existingItem = state.items.find(item => item.name === name);
       if (existingItem) {
@@ -15,10 +15,10 @@ export const CartSlice = createSlice({
         state.items.push({ name, image, cost, quantity: 1 });
       }
     },
-    removeItem: (state, action) => {
+    removeItem: (state, action) => {//TAREA2
       state.items = state.items.filter(item => item.name !== action.payload);
     },
-    updateQuantity: (state, action) => {
+    updateQuantity: (state, action) => {//TAREA2
       const { name, quantity } = action.payload;
       const itemToUpdate = state.items.find(item => item.name === name);
       if (itemToUpdate) {
