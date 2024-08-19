@@ -1,5 +1,7 @@
 
 import React, { useState } from 'react';
+import { Provider } from 'react-redux'; //Cambio Tarea punto 5
+import store from './store'; //Cambio Tarea punto 5
 import ProductList from './ProductList';
 import './App.css';
 import AboutUs from './AboutUs';
@@ -11,8 +13,9 @@ function App() {
   const handleGetStartedClick = () => {
     setShowProductList(true);
   };
-
+//Cambio Tarea punto 5 agregando el Provider store 
   return (
+    <Provider store={store}>
     <div className="app-container">
       <div className={`landing-page ${showProductList ? 'fade-out' : ''}`}>
         <div className="background-image"></div>
@@ -36,6 +39,7 @@ function App() {
         <ProductList />
       </div>
     </div>
+    </Provider>
   );
 }
 
