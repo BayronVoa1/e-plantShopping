@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
-import { selectTotalItems } from './CartSlice'
+import { selectTotalItems } from './CartSlice' //TAREA 3.8
 import {useSelector, useDispatch } from "react-redux"; //TAREA1 punto4 a 6
 import {addItem} from './CartSlice'; //TAREA1 punto4 a 6
 
@@ -10,8 +10,8 @@ function ProductList() {
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch();//TAREA1 punto4 a 6
-    let itemNum = useSelector(selectTotalItems);
-    //let itemNum=0;
+    let itemNum = useSelector(selectTotalItems); //TAREA 3.8
+
 
     const plantsArray = [
         {
@@ -262,7 +262,7 @@ const handlePlantsClick = (e) => {
        [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
      }));
   };
-
+    //TAREA 3.8 en el div de styleObjU1 handleCartClick en la ultima parte {itemNum}
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -278,9 +278,9 @@ const handlePlantsClick = (e) => {
                 </div>
               
             </div>
-            <div style={styleObjUl}>
+            <div style={styleObjUl}> 
                 <div> <a href="#" onClick={(e)=>handlePlantsClick(e)} style={styleA}>Plants</a></div>
-                <div> <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}><h1 className='cart'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68"><rect width="156" height="156" fill="none"></rect><circle cx="80" cy="216" r="12"></circle><circle cx="184" cy="216" r="12"></circle><path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="mainIconPathAttribute"></path></svg>{itemNum}</h1></a></div>
+                <div> <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}><h1 className='cart'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68"><rect width="156" height="156" fill="none"></rect><circle cx="80" cy="216" r="12"></circle><circle cx="184" cy="216" r="12"></circle><path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="mainIconPathAttribute"></path></svg>{itemNum}</h1></a></div> 
                 
             </div>
         </div>
