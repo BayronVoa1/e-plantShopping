@@ -1,14 +1,14 @@
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
-import {useDispatch } from "react-redux";
-import {addItem} from './CartSlice';
+import {useDispatch } from "react-redux"; //TAREA1 punto4 a 6
+import {addItem} from './CartSlice'; //TAREA1 punto4 a 6
 
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();//TAREA1 punto4 a 6
 
     const plantsArray = [
         {
@@ -251,7 +251,7 @@ const handlePlantsClick = (e) => {
     e.preventDefault();
     setShowCart(false);
   };
-
+//TAREA1 punto4 a 6
   const handleAddToCart = (product) => {
     dispatch(addItem(product));
     setAddedToCart((prevState) => ({
@@ -282,7 +282,7 @@ const handlePlantsClick = (e) => {
         </div>
         {!showCart? (
         <div className="product-grid">
-            {plantsArray.map((category, index) => (
+            {plantsArray.map((category, index) => (/*TAREA1 PUNTO3*/
                 <div key={index}>
                     <h1><div>{category.category}</div></h1>
                     <div className="product-list">
