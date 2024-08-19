@@ -16,14 +16,7 @@ const CartItem = ({ onContinueShopping }) => {
     return costoTotal;
   };
 
-    // Calculate total amount for all products in the cart
-    const calculateTotalItems = () => { //TAREA 3.1
-      let totalItems = 0;
-      for(let i = 0; i<cart.length;i++){
-        totalItems += cart[i].quantity;
-      }
-      return totalItems;
-    };
+
 
   const handleContinueShopping = (e) => {
     onContinueShopping(e);//TAREA3.2
